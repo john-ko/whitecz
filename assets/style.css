@@ -4,19 +4,27 @@
         text-align:left;
     }
 }*/
+body {
+    background-color: #fefefe;
+}
 
 .logo-container {
-    text-align: center;
+    margin-top: 30px;
 }
 
 .logo {
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
+    font-size: 30px;
     padding: 1px 12px;
     border: 5px solid #000;
     color: #000;
     display: inline-block;
     margin-top:14px;
+
+}
+
+.nav-container {
 
 }
 
@@ -38,9 +46,47 @@ ul.nav li {
     font-size: 20px;
 }
 
+.img-container {
+    margin: 10px 0;
+    padding-bottom: 10px;
+}
+
+.image-row {
+    padding-top: 15px;
+}
+
+.img-responsive {
+    width: 100%;
+}
+
+ul.footer-nav {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul.footer-nav li {
+    padding: 0 15px;
+    border-right: 1px solid #ccc;
+    display: inline;
+    text-align: center;
+}
+
+ul.footer-nav li:first-child {
+    border-left: 1px solid #ccc;
+}
+
+footer {
+    text-align: center;
+    padding-bottom: 100px;
+}
 @media (min-width: 768px) {
     ul.nav li {
         display: inline;
         border-top: none;
+    }
+
+    .img-container {
+        margin: 0;
     }
 }
