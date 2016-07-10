@@ -59,6 +59,18 @@ ul.nav li {
     width: 100%;
 }
 
+h1 {
+    color: #555;
+}
+.content-container {
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.content-row {
+    margin-bottom: 15px;
+}
+/*** footer ***/
 ul.footer-nav {
     list-style-type: none;
     padding: 0;
@@ -74,6 +86,38 @@ ul.footer-nav li {
 
 ul.footer-nav li:first-child {
     border-left: 1px solid #ccc;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.card {
+    padding: 10px;
+    width: 100%;
+    min-height: 100px;
+    -moz-box-shadow: 0px 0px 5px rgba(0,0,0,.25);
+    -webkit-box-shadow: 0px 0px 5px rgba(0,0,0,.25);
+    box-shadow: 0px 0px 5px rgba(0,0,0,.25);
+}
+
+.main-block {
+    text-align: center;
+}
+
+.table {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.row {
+    margin-top: 20px;
+}
+
+table.table td:hover {
+    background-color: #ccc;
 }
 
 footer {
