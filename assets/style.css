@@ -28,13 +28,13 @@ body {
 
 }
 
-ul.nav {
+ul.header-nav {
     list-style-type: none;
     padding: 0;
     text-align: center;
 }
 
-ul.nav li {
+ul.header-nav li {
     /*display: inline;*/
     text-align: center;
     margin: 15px;
@@ -125,7 +125,7 @@ footer {
     padding-bottom: 100px;
 }
 @media (min-width: 768px) {
-    ul.nav li {
+    ul.header-nav li {
         display: inline;
         border-top: none;
     }

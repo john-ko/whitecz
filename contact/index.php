@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$errors = array();
 
 // generate new token
 if (!isset($_SESSION['token']))
@@ -9,12 +10,57 @@ if (!isset($_SESSION['token']))
     $_SESSION['token'] = $token;
 }
 
+function sanitize_vars($list) {
+    foreach($list as $name) {
+        // $_POST[$name] = $_POST[$name];
+    }
+}
+
+function generate_message() {
+    $message = 'From: '.$_POST['name'].' '.$_POST['email'] . "\n";
+    $message += 'Company: '.$_POST['company']."\n";
+    $message += 'Address: '.$_POST['address']."\n";
+    $message += 'Phone: ' . $_POST['phone']."\n";
+    $message += 'Message: '.$_POST['message'];
+}
+
 function email_validation($email) {
 
 }
 
-function validate_form($post) {
+function get_errors_from_form() {
+    $names = array(
+        'company',
+        'name',
+        'address',
+        'phone',
+        'email',
+        'subject',
+        'message'
+    );
 
+    $errors = array();
+
+    foreach($names as $name) {
+
+        if (! isset($_POST[$name]) && empty($_POST[$name])) {
+            $errors[] = $name;
+        } else if ($name == 'email') {
+
+        }
+    }
+
+    return $errors;
+}
+
+if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
+    $errors = get_errors_from_form();
+    var_dump($errors);
+    if ($errors) {
+        echo "errors";
+    } 
+
+    echo "DONZO";
 }
 
 ?>
@@ -26,6 +72,7 @@ function validate_form($post) {
   <link href='/assets/bootstrap.css' rel='stylesheet' type='text/css'>
   <link href='/assets/style.css' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="/assets/script.js"></script>
   <title>L O G O S | cubic zirconias</title>
 </head>
 <body>
@@ -43,7 +90,7 @@ function validate_form($post) {
 <div class="nav-container">
     <div class="row">
         <nav>
-            <ul class="nav">
+            <ul class="header-nav">
                 <li><a href="/" class="mobile-nav">Home</a></li>
                 <li><a href="/about" class="mobile-nav">About Us</a></li>
                 <li><a href="/machinecut" class="mobile-nav">Machine Cut</a></li>
@@ -64,15 +111,59 @@ function validate_form($post) {
         </div>
 
         <div class="row">
-            <div class="col-sm-8">
+            <?php
+            if (!empty($messages)) {
+                foreach($messages as $message) {
+                    echo '<div class="alert alert-danger">
+                    <strong>Success!</strong> Indicates a successful or positive action.
+                    </div>';
+                }
+            }
+            ?>
+            <div class="col-sm-7">
             <form method="post" action="">
 
+                <div class="form-group">
+                    <label for="company">Company Name (required)</label>
+                    <input name="company" type="text" class="form-control" id="company" placeholder="Company Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Name (required)</label>
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Address (required)</label>
+                    <input name="address" type="text" class="form-control" id="address" placeholder="Address" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Phone Number (required)</label>
+                    <input name="phone" type="text" class="form-control" id="phone" placeholder="Phone number" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address (required) </label>
+                    <input name="email" type="email" class="form-control" id="email" placeholder="Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Subject (required)</label>
+                    <input name="subject" type="text" class="form-control" id="subject" placeholder="Subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Message (required)</label>
+                    <textarea name="message" type="text" class="form-control" id="message" placeholder="Message" required></textarea>
+                </div>
+
+                <input type="hidden" name="csrf" value="<?php echo $_SESSION['token'];?>" />
+
+            <button onClick="validate()">clicky click</button>
             </form>
-
-
-
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-5">
                 contact
             </div>
         </div>
