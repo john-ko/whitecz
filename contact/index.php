@@ -25,7 +25,7 @@ function generate_message() {
 }
 
 function email_validation($email) {
-
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 function get_errors_from_form() {
@@ -46,7 +46,9 @@ function get_errors_from_form() {
         if (! isset($_POST[$name]) && empty($_POST[$name])) {
             $errors[] = $name;
         } else if ($name == 'email') {
-
+            if ( !email_validation($_POST[$name])) {
+                $errors[] = $name;
+            }
         }
     }
 
@@ -58,7 +60,9 @@ if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
     var_dump($errors);
     if ($errors) {
         echo "errors";
-    } 
+    } else {
+        //mail()
+    }
 
     echo "DONZO";
 }
