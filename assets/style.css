@@ -8,6 +8,14 @@ body {
     background-color: #fefefe;
 }
 
+.contact-info {
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+
+.contact-info h4 {
+    font-weight: 700;
+}
 .logo-container {
     text-align: center;
     margin-top: 30px;

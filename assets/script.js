@@ -4,6 +4,14 @@
 
 console.log("HELLO WORLD!");
 
+
+
+
+
+
+
+
+
 function removeErrors(elementList) {
     elementList.map(function(element) {
         element.parentElement.classList.remove("has-error");
