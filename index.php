@@ -1,0 +1,17 @@
+<?php
+
+$page = '';
+$title = 'Home';
+
+include('header.php');
+?>
+
+<div class="content-container">
+    <div class="content">
+    <div class="row image-row"><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/1.jpg"><img class="img-responsive" src="/images/thumbs/1.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/2.jpg"><img class="img-responsive" src="/images/thumbs/2.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/3.jpg"><img class="img-responsive" src="/images/thumbs/3.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/4.jpg"><img class="img-responsive" src="/images/thumbs/4.jpg"></a></div></div><div class="row image-row"><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/5.jpg"><img class="img-responsive" src="/images/thumbs/5.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/6.jpg"><img class="img-responsive" src="/images/thumbs/6.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/7.jpg"><img class="img-responsive" src="/images/thumbs/7.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/8.jpg"><img class="img-responsive" src="/images/thumbs/8.jpg"></a></div></div><div class="row image-row"><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/9.jpg"><img class="img-responsive" src="/images/thumbs/9.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/10.jpg"><img class="img-responsive" src="/images/thumbs/10.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/11.jpg"><img class="img-responsive" src="/images/thumbs/11.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/12.jpg"><img class="img-responsive" src="/images/thumbs/12.jpg"></a></div></div><div class="row image-row"><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/13.jpg"><img class="img-responsive" src="/images/thumbs/13.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/14.jpg"><img class="img-responsive" src="/images/thumbs/14.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/15.jpg"><img class="img-responsive" src="/images/thumbs/15.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/16.jpg"><img class="img-responsive" src="/images/thumbs/16.jpg"></a></div></div><div class="row image-row"><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/17.jpg"><img class="img-responsive" src="/images/thumbs/17.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/18.jpg"><img class="img-responsive" src="/images/thumbs/18.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/19.jpg"><img class="img-responsive" src="/images/thumbs/19.jpg"></a></div><div class="col-sm-6 col-md-3 img-container"><a class="image-link" href="/images/full/20.jpg"><img class="img-responsive" src="/images/thumbs/20.jpg"></a></div></div>
+
+    </div>
+</div>
+
+<?php
+include('footer.php');

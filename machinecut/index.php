@@ -1,49 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Welcome to LOGOS, cubic zircoinia, hand cut, machine cut, ect. in all available shapes and sizes">
-  <meta name="keywords" content="White Cubic Zirconia,Wholesale,White CZ,LOGOS">
-  <meta property="og:site_name" content="Logos | White Cubic Zirconia">
-  <meta property="og:title" content="Main Page">
-  <meta property="og:description" content="We sell high quality diamonds">
-  <meta property="og:url" content="http://www.whitecz.com/machine">
-  <meta property="og:type" content="article">
-  <meta property="og:image" content="http://www.whitecz.com/images/main.jpg" />
-  <link href='/assets/bootstrap.css' rel='stylesheet' type='text/css'>
-  <link href='/assets/style.css' rel='stylesheet' type='text/css'>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Machine Cut Cubic Zirconias</title>
-  <link rel="stylesheet" href="/assets/magnific-popup.css">
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="/assets/jquery.magnific-popup.min.js"></script>
-</head>
-<body>
+<?php
 
+$page = 'machinecut';
+$title = 'Machine Cut';
 
-<div class="container">
-<div class="logo-container">
-    <div class="row">
-        <div class="col-xs-12 col-sm-4">
-            <div class="logo">L O G O S</div>
-        </div>
-        <div class="col-xs-12 col-sm-8"></div>
-    </div>
-</div>
-<div class="nav-container">
-    <div class="row">
-        <nav>
-            <ul class="header-nav">
-                <li><a href="/" class="mobile-nav">Home</a></li>
-                <li><a href="/about" class="mobile-nav">About Us</a></li>
-                <li><a href="/machinecut" class="mobile-nav">Machine Cut</a></li>
-                <li><a href="/handcut" class="mobile-nav">Hand Cut</a></li>
-                <li><a href="/contact" class="mobile-nav">Contact Us</a></li>
-            </ul>
-        </nav>
-    </div>
-</div>
-
+include('../header.php');
+?>
 
 <div class="content-container">
     <div class="content">
@@ -137,36 +98,5 @@
     </div>
 </div>
 
-
-
-
-<footer>
-<div class="container">
-    <div class="row">
-    <ul class="footer-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/machinecut">Machine Cut</a></li>
-        <li><a href="/handcut">Hand Cut</a></li>
-        <li><a href="/contact">Contact Us</a></li>
-
-    </ul>
-    </div>
-    <div class="row">
-    info@whitecz.com (213)463-1234 USA
-    </div>
-    <div class="row">
-        <a href="https://www.facebook.com/Cubic-Zirconia-190994887596398"><img class="social-icons" src="/images/facebook-logo.png"/></a>
-        <a href="https://twitter.com/whitecz"><img class="social-icons" src="/images/twitter-logo.png"/></a>
-        <a href="skype:whitecz.com?add"><img class="social-icons" src="/images/skype-logo.png"></a>
-        <a href="weixin://contacts/profile/logos-1985"><img class="social-icons" src="/images/wechat-logo.png"/></a>
-    </div>
-</div>
-</footer>
-<script>
-$(document).ready(function() {
-  $('.image-link').magnificPopup({type:'image'});
-});
-</script>
-</body>
-</html>
+<?php
+include('../footer.php');
