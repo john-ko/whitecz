@@ -17,11 +17,54 @@ function sanitize_vars($list) {
 }
 
 function generate_message() {
-    $message = 'From: '.$_POST['name'].' '.$_POST['email'] . "\n";
-    $message += 'Company: '.$_POST['company']."\n";
-    $message += 'Address: '.$_POST['address']."\n";
-    $message += 'Phone: ' . $_POST['phone']."\n";
-    $message += 'Message: '.$_POST['message'];
+    $html = '<html>
+<head>
+<title>Email from the web</title>
+</head>
+<body>
+
+<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable">
+<tr>
+<td align="center" valign="top">
+
+<table border="1" cellpadding="10" width="500">
+<tr>
+<td>Company</td>
+<td>' . $_POST['company'] . '</td>
+</tr>
+<tr>
+<td>Contact name</td>
+<td>'.$_POST['name'].'</td>
+</tr>
+<tr>
+<td>Address</td>
+<td>'.$_POST['address'].'</td>
+</tr>
+<tr>
+<td>Tel No</td>
+<td>'.$_POST['phone'].'</td>
+</tr>
+<tr>
+<td>E-mail Address</td>
+<td>'.$_POST['email'].'</td>
+</tr>
+<tr>
+<td>Question/Order</td>
+<td>'.$_POST['message'].'</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+';
+    return $html;
+    // $message = 'From: '.$_POST['name'].' '.$_POST['email'] . "\n";
+    // $message += 'Company: '.$_POST['company']."\n";
+    // $message += 'Address: '.$_POST['address']."\n";
+    // $message += 'Phone: ' . $_POST['phone']."\n";
+    // $message += 'Message: '.$_POST['message'];
 }
 
 function email_validation($email) {
@@ -55,31 +98,49 @@ function get_errors_from_form() {
     return $errors;
 }
 
-if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
-    $errors = get_errors_from_form();
-    var_dump($errors);
-    if ($errors) {
-        echo "errors";
-    } else {
-        //mail()
-        // show thankyou message
-        $message = "Thank you";
-    }
 
-    echo "DONZO";
+
+if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
+    $output = array(
+        'status' => 'danger',
+        'message' => ''
+    );
+    $errors = get_errors_from_form();
+    if ($errors) {
+        $output['message'] = 'Please make sure all fields are correct';
+    } else {
+        $to = 'info@whitecz.com';
+        $subject = 'New order form';
+
+
+        // Always set content-type when sending HTML email
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+        // More headers
+        $headers .= 'From: <webmaster@whitecz.com>' . "\r\n";
+
+        $message = generate_message();
+        //if (mail($to, $subject, $message, $headers)) {
+        if (0) {
+            $output['message'] = 'Email was successfully sent!';
+            $output['status'] = 'success';
+        } else {
+            $output['message'] = 'Error while emailing';
+        }
+    }
 }
 
-?>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
-  <!--<link href="https://fonts.googleapis.com/css?family=Raleway:300,800" rel="stylesheet">-->
   <link href='/assets/bootstrap.css' rel='stylesheet' type='text/css'>
   <link href='/assets/style.css' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="/assets/script.js"></script>
   <title>L O G O S | cubic zirconias</title>
+  <link rel="stylesheet" href="/assets/magnific-popup.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/assets/jquery.magnific-popup.min.js"></script>
 </head>
 <body>
 
@@ -109,6 +170,16 @@ if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
 
 
 <div class="content-container">
+<?php 
+if (isset($output)) {
+?>
+<div class="alert alert-<?php echo $output['status']; ?>">
+  <?php echo $output['message'] ?>
+</div>
+
+<?php
+}
+?>
     <div class="content">
         <div class="row">
             <div class="col-xs-12">
@@ -166,7 +237,7 @@ if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
 
                 <input type="hidden" name="csrf" value="<?php echo $_SESSION['token'];?>" />
 
-            <button onClick="validate()">clicky click</button>
+            <button onClick="validate()">Submit</button>
             </form>
             </div>
             <div class="col-sm-5">
@@ -193,33 +264,10 @@ if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
                     148 S Gramercy Pl. # 3<br/>
                     Los Angeles, CA 90004 (U.S.A)
                 </div>
-                <div class="contact-info">
-                    <h4>Social: </h4>
-                </div>
             </div>
         </div>
 
 
-
-        <div class="row">
-            
-            <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
-            </div>
-
-            <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
-            </div>
-        </div>
-
-    </div>
 </div>
 
 
@@ -229,18 +277,29 @@ if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
 <div class="container">
     <div class="row">
     <ul class="footer-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Machine Cut</a></li>
-        <li><a href="#">Hand Cut</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/machinecut">Machine Cut</a></li>
+        <li><a href="/handcut">Hand Cut</a></li>
+        <li><a href="/contact">Contact Us</a></li>
 
     </ul>
     </div>
     <div class="row">
     info@whitecz.com (213)463-1234 USA
     </div>
+    <div class="row">
+        <a href="https://www.facebook.com/Cubic-Zirconia-190994887596398"><img class="social-icons" src="/images/facebook-logo.png"/></a>
+        <a href="https://twitter.com/whitecz"><img class="social-icons" src="/images/twitter-logo.png"/></a>
+        <a href="skype:whitecz.com?add"><img class="social-icons" src="/images/skype-logo.png"></a>
+        <a href="weixin://contacts/profile/logos-1985"><img class="social-icons" src="/images/wechat-logo.png"/></a>
+    </div>
 </div>
 </footer>
+<script>
+$(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+</script>
 </body>
 </html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!--<link href="https://fonts.googleapis.com/css?family=Raleway:300,800" rel="stylesheet">-->
   <link href='/assets/bootstrap.css' rel='stylesheet' type='text/css'>
   <link href='/assets/style.css' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>L O G O S | cubic zirconias</title>
+  <link rel="stylesheet" href="/assets/magnific-popup.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/assets/jquery.magnific-popup.min.js"></script>
 </head>
 <body>
 
@@ -105,18 +107,22 @@
         <div class="row">
             
             <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
+            <a class="image-link" href="/images/full/5.jpg">
+                <img class="img-responsive" src="/images/thumbs/5.jpg" /></a>
             </div>
 
             <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
+            <a class="image-link" href="/images/full/6.jpg">
+                <img class="img-responsive" src="/images/thumbs/6.jpg" /></a>
             </div>
 
             <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
+            <a class="image-link" href="/images/full/21.jpg">
+                <img class="img-responsive" src="/images/thumbs/21.jpg" /></a>
             </div>
             <div class="col-md-3 col-sm-6">
-                <img class="img-responsive" src="/images/thumbs/1.jpg" />
+            <a class="image-link" href="/images/full/8.jpg">
+                <img class="img-responsive" src="/images/thumbs/8.jpg" /></a>
             </div>
         </div>
     </div>
@@ -129,18 +135,29 @@
 <div class="container">
     <div class="row">
     <ul class="footer-nav">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Machine Cut</a></li>
-        <li><a href="#">Hand Cut</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/machinecut">Machine Cut</a></li>
+        <li><a href="/handcut">Hand Cut</a></li>
+        <li><a href="/contact">Contact Us</a></li>
 
     </ul>
     </div>
     <div class="row">
     info@whitecz.com (213)463-1234 USA
     </div>
+    <div class="row">
+        <a href="https://www.facebook.com/Cubic-Zirconia-190994887596398"><img class="social-icons" src="/images/facebook-logo.png"/></a>
+        <a href="https://twitter.com/whitecz"><img class="social-icons" src="/images/twitter-logo.png"/></a>
+        <a href="skype:whitecz.com?add"><img class="social-icons" src="/images/skype-logo.png"></a>
+        <a href="weixin://contacts/profile/logos-1985"><img class="social-icons" src="/images/wechat-logo.png"/></a>
+    </div>
 </div>
 </footer>
+<script>
+$(document).ready(function() {
+  $('.image-link').magnificPopup({type:'image'});
+});
+</script>
 </body>
 </html>
