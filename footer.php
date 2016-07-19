@@ -12,7 +12,7 @@
     </ul>
     </div>
     <div class="row">
-    info@whitecz.com / Tel(323) 463-1234 U.S.A.
+    info@whitecz.com / Tel ( 323 ) 463 - 1234  U.S.A
     </div>
     <div class="row">
         <a href="https://www.facebook.com/Cubic-Zirconia-190994887596398"><img class="social-icons" src="/images/facebook-logo.png"/></a>

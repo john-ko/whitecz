@@ -10,12 +10,6 @@ if (!isset($_SESSION['token']))
     $_SESSION['token'] = $token;
 }
 
-function sanitize_vars($list) {
-    foreach($list as $name) {
-        // $_POST[$name] = $_POST[$name];
-    }
-}
-
 function generate_message() {
     $html = '<html>
 <head>
@@ -121,8 +115,7 @@ if (! empty($_POST) && $_SESSION['token'] == $_POST['csrf']) {
         $headers .= 'From: <webmaster@whitecz.com>' . "\r\n";
 
         $message = generate_message();
-        //if (mail($to, $subject, $message, $headers)) {
-        if (0) {
+        if (mail($to, $subject, $message, $headers)) {
             $output['message'] = 'Email was successfully sent!';
             $output['status'] = 'success';
         } else {
